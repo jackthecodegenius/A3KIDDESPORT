@@ -1,0 +1,24 @@
+﻿<Window x:Class="A3KIDDESPORT.GameResults"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:A3KIDDESPORT"
+        mc:Ignorable="d"
+        Background="LightGray"
+        Title="ReportPage" Height="450" Width="800">
+
+    <Grid>
+        <Label Content="VS" HorizontalAlignment="Left" Height="100" Margin="160,171,0,0" VerticalAlignment="Top" Width="108" FontSize="60"/>
+        <Button Content="Save" HorizontalAlignment="Left" Height="35" Margin="691,389,0,0" VerticalAlignment="Top" Width="99" Background="LightGreen" Click="Button_Click"/>
+        <Button Content="X" HorizontalAlignment="Left" Height="25" Margin="762,10,0,0" VerticalAlignment="Top" Width="28" Background="PaleVioletRed" x:Name="btnClose" Click="btnClose_Click" />
+        <ComboBox x:Name="cboTeamName" SelectionChanged="ComboBox_SelectionChanged" Margin="96,82,488,299" />
+        <ComboBox x:Name="cboOpponentName" SelectionChanged="ComboBox_SelectionChanged" Margin="96,326,488,58" />
+        <Label Content="Team " HorizontalAlignment="Left" Height="42" Margin="96,35,0,0" VerticalAlignment="Top" Width="282" FontSize="20"/>
+        <Label Content="Opposite Team " HorizontalAlignment="Left" Height="42" Margin="96,282,0,0" VerticalAlignment="Top" Width="282" FontSize="20"/>
+        <RadioButton x:Name="rbnWinner" Content="Win" HorizontalAlignment="Left" Height="22" Margin="470,82,0,0" VerticalAlignment="Top" Width="106" />
+        <RadioButton x:Name="rbnOpponentWinner" Content="Draw" HorizontalAlignment="Left" Height="22" Margin="622,195,0,0" VerticalAlignment="Top" Width="106" />
+        <RadioButton x:Name="rbnDraw" Content="Opponent Win" HorizontalAlignment="Left" Height="22" Margin="470,337,0,0" VerticalAlignment="Top" Width="106"/>
+
+    </Grid>
+</Window>

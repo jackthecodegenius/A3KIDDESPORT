@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="A3KIDDESPORT.EventPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:A3KIDDESPORT"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#505965">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style x:Key="CoolButton" TargetType="Button">
+                <Setter Property="Background" Value="CadetBlue"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="BorderBrush" Value="AntiqueWhite"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Style>
+        </Grid.Resources>
+
+        <DataGrid x:Name="dgvEvent" IsReadOnly="True" Margin="5" SelectionChanged="dgvEvent_SelectionChanged" />
+        <StackPanel Grid.Column="1" Margin="5">
+            <Label>ID:</Label>
+            <TextBox x:Name="txtEventID" IsReadOnly="True" Margin="0,5"/>
+            <Label>Event Name:</Label>
+            <TextBox x:Name="txtEventName" DataObject.Pasting="TextBoxPasting" PreviewTextInput="LetterValidation" Margin="0,5"/>
+            <Label>EventLocation:</Label>
+            <TextBox x:Name="txtEventLocation" DataObject.Pasting="TextBoxPasting" PreviewTextInput="LetterValidation" Margin="0,5"/>
+            <Label>Date:</Label>
+            <DatePicker Name="pkrDate" IsTodayHighlighted="False" Margin="5"/>
+
+            <Button x:Name="btnSave" Style="{StaticResource CoolButton}" Margin="20,10" Click="btnSave_Click">SAVE</Button>
+            <Button x:Name="btnClear" Style="{StaticResource CoolButton}" Margin="20,100" Click="btnClear_Click">CLEAR FORM</Button>
+        </StackPanel>
+        <Button x:Name="btnDelete" Style="{StaticResource CoolButton}" Background="Red" Grid.Row="1" HorizontalAlignment="Left" 
+        Margin="10" Padding="10,5" Click="btnDelete_Click">DELETE RECORD</Button>
+    </Grid>
+</UserControl>

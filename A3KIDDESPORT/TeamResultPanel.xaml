@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="A3KIDDESPORT.TeamResultPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:A3KIDDESPORT"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#505965">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style x:Key="CoolButton" TargetType="Button">
+                <Setter Property="Background" Value="CadetBlue"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="BorderBrush" Value="AntiqueWhite"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Style>
+        </Grid.Resources>
+
+        <DataGrid x:Name="dgvTeamResult" IsReadOnly="True" Margin="5" SelectionChanged="dgvTeamResult_SelectionChanged" />
+        <StackPanel Grid.Column="1" Margin="5,-13,5,21" Grid.RowSpan="2">
+            <Label>ID:</Label>
+            <TextBox x:Name="txtTeamResultID" Margin="0,5"/>
+            <Label>Events:</Label>
+            <ComboBox x:Name="cboEvent" Margin="5" />
+            <Label>Games:</Label>
+            <ComboBox x:Name="cboGame" Margin="5" />
+            <Label>Teams:</Label>
+            <ComboBox x:Name="cboTeam" SelectionChanged="ComboBox_SelectionChanged" Margin="5" />
+            <Label>OppositeTeam:</Label>
+            <ComboBox x:Name="cboOppositeTeam" SelectionChanged="ComboBox_SelectionChanged" Margin="5" />
+            <Label>Team Result?(W/D/L)</Label>
+            <ComboBox x:Name="cboResult" Margin="5" SelectionChanged="cboResult_SelectionChanged">
+                <ComboBoxItem Content="Win"/>
+                <ComboBoxItem Content="Draw"/>
+                <ComboBoxItem Content="Opponent Win"/>
+            </ComboBox>
+            <RadioButton x:Name="rbnWinner" Content="Win"></RadioButton>
+            <RadioButton x:Name="rbnDraw" Content="Draw"></RadioButton>
+            <RadioButton x:Name="rbnOpponentWinner" Content="Opponent Win "></RadioButton>
+            <Button x:Name="btnSave" Style="{StaticResource CoolButton}" Margin="20,10" Click="btnSave_Click">SAVE</Button>
+            <Button x:Name="btnClear" Style="{StaticResource CoolButton}" Margin="20,100" Click="btnClear_Click">CLEAR FORM</Button>
+        </StackPanel>
+        <Button x:Name="btnDelete" Style="{StaticResource CoolButton}" Background="Red" Grid.Row="1" HorizontalAlignment="Left" 
+        Margin="10" Padding="10,5" Click="btnDelete_Click">DELETE RECORD</Button>
+        <Button x:Name="btnNewWindow" Style="{StaticResource CoolButton}" Background="Green" Grid.Row="1" HorizontalAlignment="Left" 
+Margin="138,10,0,10" Padding="10,5" Click="btnNewWindow_Click">GAME RESULTS</Button>
+    </Grid>
+</UserControl>
